@@ -42,6 +42,8 @@ when "ubuntu"
 when "centos", "redhat"
   yum_repository "treasure-data" do
     url "http://packages.treasure-data.com/redhat/$basearch"
+    # Skip gpgcheck until https://github.com/treasure-data/td-agent/issues/43 is fixed
+    gpgcheck false
     action :add
   end
 end
